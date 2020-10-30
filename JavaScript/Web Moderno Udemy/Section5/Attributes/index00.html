@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style00.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <title>Selecting | Attributes</title>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <a class="a" onclick="window.alert('Redirecionando pra um Site Foda')" 
+      href="https://unsplash.com">Console Bro</a>
+    </div>
+    <div id="first">
+      <a href="https://source.unsplash.com/random/1920x1080">
+        <img class="transition" src="https://source.unsplash.com/random/100x100" alt="">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const img = document.querySelector('img');
+    const a = document.querySelector('.container a');
+    // Get attribute gets the value of;
+    console.log('================== Getting Attribute ==================');
+    console.log('var.getAttribute =', img.getAttribute('src'));
+    console.log('var.src =', img.src);
+    console.log("var['src'] =", img['src']);
+
+    //Each number in nodeType means a different thing, 1 being element for instance; 
+    console.log('===================== Img Element =====================')
+    console.log("NodeType =", img.nodeType);
+    console.log("NodeName =", img.nodeName);
+
+    // GetAttributeNode gets the node; 
+    console.log('==================== Src Attribute ====================')
+    const src = img.getAttributeNode('src');
+    console.log('NodeType =', src.nodeType);
+    console.log('NodeName =', src.nodeName);
+    console.log('NodeValue =', src.nodeValue);
+
+    console.log('====================== a Element ======================');
+    console.log('a.href =', a.href);
+    console.log('FirstChild ElementType =', a.firstChild.nodeType);
+    a.firstChild.nodeValue = 'New text, old problems. Look at console';
+    // Or
+    a.InnerHTML = 'New text, old problems. Look at console';
+  </script>
+</body>
+
+</html>

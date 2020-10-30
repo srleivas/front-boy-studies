@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style03.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <title>Select | JS</title>
+</head>
+
+<body>
+  <div first-child class="container">
+    <div class="div bg-lightBlue hover-colors">
+      <p>Beginning</p>
+    </div>
+
+    <div class="div">
+      <ul class="list-container">
+        <li class="hover-colors ">Name1</li>
+        <li class="hover-colors ">Name2</li>
+        <li class="hover-colors ">Name3</li>
+      </ul>
+    </div>
+
+    <div third-child class="div bg-lightBlue hover-colors">
+      <p>End</p>
+    </div>
+  </div>
+
+  <script>
+    window.alert('Look at console >')
+    function log() {
+      console.log(this);
+    }
+
+    HTMLCollection.prototype.log = log;
+    HTMLElement.prototype.log = log;
+    NodeList.prototype.log = log;
+    Node.prototype.log = log;
+
+    // Nodes below consider space between tags, generating 'text' items between elements
+    const list = document.querySelector('div ul');
+    list.parentNode.log();
+    list.childNodes.log();
+
+    const first = list.firstChild;
+    first.log();
+    first.nextSibling.log();
+
+    const last = list.lastChild;
+    last.previousSibling.log();
+
+    // This ones on the other hand, supply you with only the elements itself, without withespaces considered;
+    list.children.log();
+    list.firstElementChild.log();
+    list.lastElementChild.log();
+    list.parentNode.previousElementSibling.log();
+    list.parentNode.nextElementSibling.log();
+    list.parentNode.parentElement.log();
+
+    document.querySelectorAll('div ul li').log();
+  </script>
+</body>
+
+</html>

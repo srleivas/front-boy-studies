@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style00.css" type="text/css">
+  <title>Timed Nav | Events</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="div">
+      <!-- onclick="navigateWhithin5s(event)"-->
+      <a wait-for class="link" href="https://google.com">Google</a>
+    </div>
+  </div>
+
+  <script>
+    function navigateWhithin5s(e) {
+      e.preventDefault();
+      console.log('Leaving Domain in 5s...');
+      setTimeout(() => {
+        window.location.href = e.target.href;
+      }, 5000);
+    }
+
+    const link = document.querySelector('[wait-for]')
+    link.onclick = navigateWhithin5s;
+  </script>
+</body>
+
+</html>

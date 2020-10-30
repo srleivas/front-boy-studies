@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Task</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+    }
+    body{
+      font-family: Raleway, sans-serif;
+      background-color: #296b81;
+      text-align: center;
+    }
+    .container{
+      max-width: 600px;
+      padding: 35px;
+      margin: 30px auto;
+    }
+    .formwrap{
+      position: relative;
+      display: block;
+      height: 720px;
+      padding: 30px;
+      margin: 15px auto;
+      background: #ffffff;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+    .formwrap .input-box{
+      text-align: center;
+    }
+    .formwrap .input-box label{
+      display: block;
+      text-align: left;
+      color: #454040;
+      margin: 0 auto;
+      height: 16px;
+    }
+    .formwrap .input-box input{
+      padding: 5px;
+      width: 400px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid #d3d3d3;
+    }
+    .formwrap h1, p{
+      text-align: center;
+    }
+    .formwrap button{
+      cursor: pointer;
+      background: #49c1a2;
+      margin: 0 auto;
+      padding: 15px 180px;
+      border: 1px solid #49c1a2;
+      border-radius: 10px;
+      color: #ffffff;
+    }
+    .formwrap button:hover{
+      background: #37a08e;
+      border: 2px solid #49c1a2;
+      padding: 14px 180px;
+      margin: 0px auto;
+      color: #ffffff;
+    }
+    .bottom-text{
+      display: block;
+      margin: 20px auto;
+      font-size: 12px;
+      max-width: 300px;
+    }
+    .bottom-text a{
+      color: #00c2cb ;
+    }
+    .bottom-text a:hover{
+      color: #3788d4 ;
+    }
+    footer p{
+      position: relative;
+      display: block;
+      color: #ffffff;
+      margin-top: 40px;
+      padding: 15px;
+    }
+    footer a{
+      color: #49c1a2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="formwrap">
+      <form action="#" autocomplete="off">
+        <h1>Create your Account</h1><br>
+        <p>It's free and it only takes a minute</p><br>
+        <div class="input-box">
+          <label for="first-name">First Name</label><br>
+          <input type="text" name="first-name" id="first-name" required> 
+        </div><br>
+        <div class="input-box">
+          <label for="last-name">Last Name</label><br>
+          <input type="text" name="last-name" id="last-name">
+        </div><br>
+        <div class="input-box">
+          <label for="email">Email</label><br>
+          <input type="email" name="email" id="email">
+        </div><br>
+        <div class="input-box">
+          <label for="password">Password</label><br>
+          <input type="password" name="password" id="password" required>
+        </div><br>
+        <div class="input-box">
+          <label for="password-confirm">Confirm Password</label><br>
+          <input type="password" name="password-confirm" id="password-confirm" required>
+        </div><br>
+        <div type="submit" class="signupbtn">
+          <button>Sign Up</button>
+        </div>
+         <p class="bottom-text">
+           By clicking on the Sign Up button, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+        </p> 
+        <footer>
+          <p>
+            Already have an account? <a href="#">Login Here</a>
+          </p>
+        </footer>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

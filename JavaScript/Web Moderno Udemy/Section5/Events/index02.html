@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style02.css">
+  <title>Drag & Drop | Events</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left" wm-dropzone="light">
+      <h2>Drop here!</h2>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    
+    <div class="right" wm-dropzone="dark">
+      <h2>Here too!</h2>
+    </div>
+  </div>
+
+  <script>
+    const item = document.querySelectorAll('[wm-dropzone] .item');
+    item.forEach((item, index) => {
+      item.draggable = true;
+      item.id = item.id || `draggable-item${index}`;
+      item.ondragstart = e => {
+        e.dataTransfer.setData('item-id', e.target.id)
+      }
+    });
+
+    const dropzone = document.querySelectorAll('[wm-dropzone]');
+    dropzone.forEach(dropzone => {
+      dropzone.ondragover = e => e.preventDefault();
+      dropzone.ondrop = e => {
+        const id = e.dataTransfer.getData('item-id');
+        const item = document.getElementById(id); 
+        // e.target.appendChild(item);
+        dropzone.appendChild(item);
+      }
+    });
+
+
+
+    // const item = document.querySelectorAll('[wm-dropzone] .item');
+    // item.forEach((item, index) => {
+    //   item.draggable = true;
+    //   item.id = item.id || `draggable-item${index}`;
+    //   item.ondragstart = e => {
+    //     e.dataTransfer.setData('item-id', e.target.id);
+    //   } 
+    // });
+
+    // const dropzone = document.querySelectorAll('[wm-dropzone]');
+    // dropzone.forEach(dropzone => {
+    //   dropzone.ondragover = e => e.preventDefault();
+    //   dropzone.ondrop = e => {
+    //     const id = e.dataTransfer.getData('item-id');
+    //     const item = document.getElementById(id);
+    //     dropzone.appendChild(item);
+    //   }
+    // });
+
+  </script>
+
+</body>
+
+</html>

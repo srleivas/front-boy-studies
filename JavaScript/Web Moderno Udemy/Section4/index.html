@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" type="text/css">  
+  <title>Index | Yay!</title>
+</head>
+
+<body>
+  <h1 class="main-header">Links</h1>
+  <div class="container">
+    <a href="Card.html">Card</a>
+    <a href="form.html">item1</a>
+    <a href="form.html">item2</a>
+    <a href="form.html">item3</a>
+    <a href="form.html">item4</a>
+    <a href="form.html">item5</a>
+  </div>
+  <div class="new-content">
+    <section id="content"></section>
+  </div>
+</div>
+
+
+  <script>
+    document.querySelectorAll('a').forEach (link => {
+      link.onclick = function(a) {
+          a.preventDefault();
+
+        const content = document.getElementById('content');
+        fetch(link.href)
+          .then(response => response.text())
+          .then(assign => content.innerHTML = assign);
+      }
+    })
+  </script>
+</body>
+</html>

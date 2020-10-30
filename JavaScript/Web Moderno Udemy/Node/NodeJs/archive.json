@@ -1,0 +1,22 @@
+{
+    "person0" : {
+        "name" : "name0",
+        "age" : 22, 
+        "gender": "M"
+    },
+    "person1" : {
+        "name" : "name1",
+        "age" : 21, 
+        "gender": "F"
+    },
+    "person2" : {
+        "name" : "name2",
+        "age" : 42, 
+        "gender": "M"
+    },
+    "person3" : {
+        "name" : "name3",
+        "age" : 34, 
+        "gender": "F"
+    }
+}

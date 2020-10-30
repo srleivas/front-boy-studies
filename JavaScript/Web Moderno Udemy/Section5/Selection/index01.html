@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style01.css" type="text/css">
+  <title>Index | HTML</title>
+</head>
+
+<body>
+
+  <div id="first">First</div>
+  <div class="second">Second</div>
+  <div customAttribute class="third last">Third Last</div>
+
+  <script>
+    // querySelector expects selector, which means it needs the indicator # || . || else
+    document.querySelector('#first').classList.add('highlight', 'div-font');
+    document.querySelectorAll('div').forEach(e => e.classList.add('div-font'));
+
+    function select(selector) {
+      document.querySelectorAll(selector).forEach(element => element.classList.add('highlight'));
+    }
+    function deselect(selector) {
+      document.querySelectorAll(selector).forEach(element => element.classList.remove('highlight'));
+    }
+
+    select('div');
+    deselect('*');
+
+    select('.third.last');
+    deselect('*');
+
+    select(':not(#first)');
+    deselect('*');
+
+    select(':nth-child(1)');
+    deselect('*');
+
+    select('div:nth-of-type(2)')
+    deselect('*');
+
+    select('[customAttribute]');
+    deselect('*')
+  </script>
+</body>
+
+</html>

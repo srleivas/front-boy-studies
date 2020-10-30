@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+div {
+  margin: 10px 50% 10px 45%;
+  width: 100px;
+  box-shadow: 1px 1px 4px 1.2px #ccc;
+}
+
+.div-font {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.bg-first {
+  background: #fac;
+  padding: 5px;
+}
+.bg-second {
+  background: #caf;
+  padding: 5px;
+}
+.bg-third {
+  background: #afc;
+  padding: 5px;
+}
+
+.highlight {
+ border: 3px solid #2dc; 
+ border-radius: 10px;
+}

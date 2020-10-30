@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style01.css" type="text/css">
+  <title>Adjacent | HTML</title>
+</head>
+
+<body class="container">
+  <div class="div">
+    <p>Initial Text</p>
+  </div>
+
+  <script>
+    const div = document.querySelector('div');
+    div.innerHTML = 'Inner HTML';
+    // div.outerHTML = 'Outer HTML';
+    div.insertAdjacentHTML('beforebegin', '<p>Text Before Begin<p>');
+    div.insertAdjacentHTML('afterbegin', '<p>Text After Begin | <p> ');
+    div.insertAdjacentHTML('beforeend', '<p>Text Before End | <p>')
+    div.insertAdjacentHTML('afterend', 'Text After End')
+    //Text w/o tags
+    console.log(div.innerText);
+  </script>
+</body>
+
+</html>

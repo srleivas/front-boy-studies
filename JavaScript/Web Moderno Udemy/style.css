@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Nunito, Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(90deg, #000, #666);
+}
+
+.easter-egg {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+}
+
+.header {
+  text-align: center;
+  font-size: 1.7rem;
+  margin: 10px;
+  color: #ddd;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10%;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.list-container > li {
+  flex-grow: 1;
+  border-radius: 3px;
+  margin: 20px 10px 10px;
+}
+
+.link:hover {
+  transition: 0.2s;
+  background: #444;
+  border: 2px solid #90f;
+  color: #efefef;
+}
+
+.link {
+  border-radius: 3px;
+  background: #efefef;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #efefef;
+  width: 100%;
+  padding: 15px;
+  color: #333;
+}
+
+.soon:hover {
+  color: #ac0;
+}
+
+
+/* For Not used Links */
+.trash{
+  text-decoration: line-through;
+  color: #511;
+}
+.trash:hover{
+  text-decoration: line-through;
+  color: #db3;
+}
+
+@media (max-width: 1120px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+.noneShallAppear {
+  display: none;
+}

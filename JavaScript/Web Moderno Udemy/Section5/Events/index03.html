@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style03.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <form action="https://google.com/search" class="formulary" name="mySearch">
+      <h2>Boogle Search</h2>
+      <input type="text" name="q" autocomplete="off" autofocus="on">
+      <select name="hl" id="lang">
+        <option value="en-us">English | US</option>
+        <option value="pt-br">Portuguese | Brazil</option>
+      </select>
+      <button wm-submit>Search</button>
+    </form>
+  </div>
+
+  <script>
+    // const submitBtn = document.querySelector('[wm-submit]');
+
+    // submitBtn.onclick = function (e) {
+    //   e.preventDefault();
+ 
+    //   const form = e.target.parentNode;
+    //   const formData = new FormData(form);
+    //   formData.append('ajax', true);
+
+    //   console.log(formData.get('q'));
+    //   console.log(formData.has('hl'));
+
+    //   for(let data of formData) {
+    //     console.log(data);
+    //   }
+    // }
+
+    const form = document.forms[0]
+
+    form.onsubmit = function (e) {
+      e.preventDefault();
+ 
+      const form = e.target;
+      const formData = new FormData(form);
+      formData.append('ajax', true);
+
+      console.log(formData.get('q'));
+      console.log(formData.has('hl'));
+
+      for(let data of formData) {
+        console.log(data);
+      }
+    }
+
+  </script>
+</body>
+
+</html>

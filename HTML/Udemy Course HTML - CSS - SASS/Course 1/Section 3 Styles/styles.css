@@ -1,0 +1,17 @@
+p{
+	text-align:justify;
+}
+h1,h2{
+	text-align:center;
+	font-style:italic; 
+}
+body{
+	font-size:18px;
+	font-family:arial,helvetica,san-serif;
+}	
+ol{
+	/*list-style-type: upper alpha;*/
+	list-style-image:url("star.gif")
+}
+/*there are a lot of redundances all along this code, i know. Rather, i'm remebering myself that just in case. the objective here is to only learn variations and
+sintax, so yeah, see ya.*/

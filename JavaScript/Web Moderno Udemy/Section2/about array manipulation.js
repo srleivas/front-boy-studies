@@ -1,0 +1,23 @@
+const myArray = ['name1', 'name2', 'name3', 'name4'];
+
+// Remove the last element from array;
+myArray.pop();
+console.log(myArray);
+// Remove first element from array;
+myArray.shift();
+console.log(myArray);
+// Place element at the end of the array;
+myArray.push('pushedName');
+console.log(myArray);
+// Place element at the start of the array;
+myArray.unshift('UnshiftedName');
+console.log(myArray);
+// Place or/and remove elements starting on X index;
+myArray.splice(2, 0, 'splice1', 'splice2');
+console.log(myArray);
+// Produce a new array starting on X until end or selected index;
+const mySecondArray = myArray.slice(2);
+console.log(mySecondArray);
+// Get array elements from 2 to 4, not including the fourth;
+const myThirdArray = myArray.slice(2, 4);
+console.log(myThirdArray);

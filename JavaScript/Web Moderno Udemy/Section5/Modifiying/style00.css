@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.container { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.div {
+  flex-grow: 1;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  color: #666;
+  border: 2px solid #ccdbfd;
+  margin: 10px;
+  padding: 20px;
+  background: #edf2fb;
+}
+
+.div:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #d7e3fc;
+  border: 2px solid #b6ccfe;
+  transition: .2s;
+}
+
+.highlight {
+  border: 2px solid #caf;
+}

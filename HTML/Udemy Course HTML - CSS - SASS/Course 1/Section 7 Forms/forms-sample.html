@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Forms</title>
+		<style>
+			label{
+				display:block;
+				width:200px;
+				float:left; 
+				text-align:right;
+				margin: 10px 5px;
+				clear:left;
+			}
+			select, input, textarea{
+				margin:10px 5px;
+				vertical-align:middle;
+			}
+			.check{
+			vertical-align:bottom;
+			}
+			#submit{
+			margin-left:215px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Form s</h1>
+		<form action="form-submit.php" method="get">
+		<fieldset>
+		<legend>Personal Information</legend>
+		<label for="first-name">First Name:</label>
+		<input type="text" name="first-name" autofocus required id="first-name"/>
+		<br/>
+		<label for="email">Email:</label>
+		<input type="email" name="email" placeholder="enter a valid email adress" id="email"/>
+		</fieldset>
+		<br/>
+		<label for="checkbox">Checkbox:</label>
+		<input class="check" type="checkbox" name="check" value="ch1" id="checkbox"/>check 1
+		<input class="check" type="checkbox" name="check" value="ch2" id="checkbox"/>check 2
+		<br/>
+		<label for="radio">Radio:</label>
+		<input class="check" type="radio" name="check" value="r1" id="radio"/>radio 1
+		<input class="check" type="radio" name="check" value="r2" id="radio"/>radio 2
+		<br/>
+		<label for="message">Message:</label>
+		<textarea name="email"></textarea>
+		<br/>
+		<label for="dropdown">Dropdown:</label>
+		<select name="dropdown" id="email">
+			<option value="o1">Option 1</option>
+			<option value="o2">Option 2</option>
+			<option value="o3">Option 3</option>
+			<option value="o4">Option 4</option>
+			<option value="o5">Option 5</option>
+		</select>
+		<br/>
+		<label for="first-name">Password:</label>
+		<input type="password" name="password" id="password"/>
+		<br/>
+		<label for="first-name">Number:</label>
+		<input type="number" name="number" id="number"/>
+		<br/>
+		<label for="first-name">Range:</label>
+		1<input type="range" name="range" min="1" max="10" value="1"/ id="range">10
+		<br/>
+		<label for="first-name">Date:</label>
+		<input type="date" name="date" id="date"/>
+		<br/>
+		<label for="first-name">Time:</label>
+		<input type="time" name="time" id="time"/>
+		<br/>
+		<label for="first-name">Color:</label>
+		<input type="color" name="color" id="color"/>
+
+		<br/>
+
+
+		<input id="submit" type="submit" value="send"/>
+	</body>
+</html>

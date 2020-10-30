@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style01.css" type="text/css">
+  <title>Moving Div | Events</title>
+</head>
+
+<body class="container">
+  <div class="div div-font">
+    Don't touch me!
+  </div>
+
+  <script>
+    const item = document.querySelector('div');
+    const normalText = document.querySelector('div').innerHTML;
+    item.style.position = 'absolute';
+
+    item.hover = e => {
+      item.innerHTML = 'harder!!!!';
+    }
+    item.onmousemove = e => {
+      const item = e.target;
+      item.style.cursor = 'move';
+      if (e.buttons) {
+        item.innerHTML = 'Let me go you barbarian!!!';
+        item.style.background = "#a00";
+        item.style.color = "#fff";
+
+        item.style.top = `${e.clientY - (item.clientHeight / 2)}px`;
+        e.target.style.left = `${e.clientX - (e.target.clientWidth / 2)}px`;
+      }
+      else {
+        setTimeout (() => { 
+          item.style.background = "#efefef";
+          item.style.color = "#333";
+          item.innerHTML = normalText;
+        }, 1200);
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh ;
+}
+
+.formulary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 0 0
+}
+
+.formulary h2 {
+  margin-bottom: 10px;
+}
+
+.formulary select, .formulary input,
+.formulary button {
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+}
+
+footer {
+  bottom: 10px;
+  text-align: center;
+}

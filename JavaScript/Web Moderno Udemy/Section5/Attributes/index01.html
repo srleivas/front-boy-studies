@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style01.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <title>Selecting | Attributes</title>
+
+</head>
+
+<body>
+  <div class="container">
+      <label for="shopping">Shopping</label>
+      <ul id="shopping" destiny="office" data-urgency="5" class="list-container" section="decoration">
+        <li class="list-item">Item</li>
+        <li class="list-item">Item</li>
+        <li class="list-item">Item</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const list = document.querySelector('.container ul[destiny="office"]');
+    console.log(`---------------------- Ul element ---------------------`);
+    console.log('Child Nodes:', list.childNodes);
+    console.log('Direct Acess:', list.destiny);
+    console.log('Get Attribute:', list.getAttribute('destiny'));
+    console.log('Has Attribute', list.hasAttribute('destiny'))
+
+    list.setAttribute('destiny', 'reception');
+    list.setAttribute('status', 'Available');
+    list.removeAttribute('decoration');
+
+    console.log(list.dataset);
+    console.log(list.dataset.urgency);
+    list.dataset.urgency = 2;
+    console.log(list.getAttribute('data-urgency'))
+
+    
+    console.log(`----------------------- New List ----------------------`);
+    const newList = document.querySelector('#shopping');
+    console.log(newList.attributes);
+    console.log(newList.attributes.id);
+    console.log(newList.attributes[3]);
+    console.log(newList.attributes['data-urgency']);
+    console.log(newList.attributes.destiny);
+  </script>
+</body>
+
+</html>
