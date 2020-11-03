@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2015-01-16/e6c637d0b91eaa669b8e6ad82b9a1b96.ico">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <title>Ajax | XML Request</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>States</h2>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    function ajax(config) {
+      const xhr = new XMLHttpRequest();
+
+      // open("typeofRequest, recievedArgument.url, is || is not sync");
+      xhr.open(config.method, config.url, true);
+
+      xhr.onload = e => {
+        if (xhr.status === 200) {
+          config.sucess(xhr.response);
+        }
+        else if (xhr.status >= 400) {
+          config.error({
+            code: xhr.status,
+            text: xhr.statusText
+          });
+        }
+      }
+      xhr.send();
+    }
+
+    ajax({
+      url: "../Data/states.json",
+      method: "GET",
+      sucess(response) {
+        const states = JSON.parse(response);
+
+        const line = states.map(state => {
+          const tdId = document.createElement('td');
+          tdId.innerHTML = state.id;
+
+          const tdName = document.createElement('td');
+          tdName.innerHTML = state.nome;
+
+          const tdSigla = document.createElement('td');
+          tdSigla.innerHTML = state.sigla;
+
+          const tr = document.createElement('tr');
+
+          tr.appendChild(tdId);
+          tr.appendChild(tdName);
+          tr.appendChild(tdSigla);
+
+          return tr;
+        });
+        const table = document.createElement('table');
+        line.forEach(line => table.appendChild(line));
+        container.appendChild(table);
+      },
+
+      error(e) {
+        const msg = document.createTextNode(`${e.code}: ${e.text}`)
+        container.appendChild(msg);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2015-01-16/e6c637d0b91eaa669b8e6ad82b9a1b96.ico">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <title>Ajax | Fetch</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Fetch Form</h1>
+    <form name="userForm" action="../formulary" method="post">
+      <input type="text" name="name" placeholder="Name" autocomplete="off"><br>
+      <input type="text" name="surName" placeholder="Surname" autocomplete="off"><br>
+      <button>Save</button>
+    </form>
+
+    <div id="result" class="resultGood"></div>
+  </div>
+
+
+  <script>
+    document.userForm.onsubmit = async e => {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+      // data.append('ajax', true);
+
+      const options = {
+        method: form.method,
+        body: new URLSearchParams(data)
+      }
+      
+      const result = document.getElementById('result')
+
+      fetch(form.action, options)
+        .then(resp => resp.json())
+        .then(json => {
+          if (!result.innerHTML) {
+            result.style.display = 'block';
+            
+            const JsonForm = JSON.stringify(json);
+            const newJsonForm = JSON.parse(JsonForm);
+            result.append(`Name: ${newJsonForm.name} | Surname: ${newJsonForm.surName}`);  
+          }
+        })
+        .catch(e => {
+          result.classList.add('resultBad');
+          result.style.display = 'block';
+          result.innerHTML = e;
+        });
+    }
+  </script>
+</body>
+
+</html>

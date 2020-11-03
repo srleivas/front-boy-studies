@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2015-01-16/e6c637d0b91eaa669b8e6ad82b9a1b96.ico">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <title>Ajax | XML Request</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>States</h2>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+
+    function ajax(config) {
+      const xhr = new XMLHttpRequest();
+      xhr.open(config.method, config.url, true);
+
+      xhr.onreadystatechange = e => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200)
+            config.sucess(xhr.responseXML);
+        }
+        else if (xhr.status >= 400) {
+          config.error({
+            code: xhr.status,
+            text: xhr.statusText
+          });
+        }
+      }
+      xhr.send();
+    }
+
+    ajax({
+      url: "../Data/states.xml",
+      method: "get",
+      sucess(response) {
+        const states = document.getElementsByTagName('estado');
+        const items = Array.from(states).reduce((html, state) => 
+          html + `<li>${state.attributes.nome.value}</li>`, ''
+        );
+        container.insertAdjacentHTML('beforeend', `<ul>${items}</ul>`)
+      },
+      error(e) {
+        const msg = document.createTextNode(`${e.code}: ${e.text}`);
+        container.appendChild(msg);
+      }
+    });
+
+  </script>
+</body>
+
+</html>
