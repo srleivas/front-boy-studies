@@ -67,17 +67,6 @@ body {
   color: #ac0;
 }
 
-
-/* For Not used Links */
-.trash{
-  text-decoration: line-through;
-  color: #511;
-}
-.trash:hover{
-  text-decoration: line-through;
-  color: #db3;
-}
-
 @media (max-width: 1120px) {
   .container {
     display: flex;

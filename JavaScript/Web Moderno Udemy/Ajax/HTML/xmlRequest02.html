@@ -24,7 +24,7 @@
       xhr.onreadystatechange = e => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200)
-            config.sucess(xhr.responseXML);
+            config.success(xhr.responseXML);
         }
         else if (xhr.status >= 400) {
           config.error({
@@ -39,7 +39,7 @@
     ajax({
       url: "../Data/states.xml",
       method: "get",
-      sucess(response) {
+      success(response) {
         const states = document.getElementsByTagName('estado');
         const items = Array.from(states).reduce((html, state) => 
           html + `<li>${state.attributes.nome.value}</li>`, ''

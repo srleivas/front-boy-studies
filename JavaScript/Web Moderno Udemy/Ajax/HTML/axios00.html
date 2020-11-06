@@ -7,22 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" href="http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2015-01-16/e6c637d0b91eaa669b8e6ad82b9a1b96.ico">
   <link rel="stylesheet" href="../CSS/style.css">
+  <script src="../Js/axios.js"></script>
   <title>Ajax | Axios</title>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container list">
     <h1>States</h1>
   </div>
 
   <script>
     const url = '../Data/states.json';
+    const container = document.querySelector('.container');
 
     axios(url).then(resp => {
       const items = resp.data.reduce((html, state) => 
         html + `<li>${state.nome}</li>`
       );
-      document.body.inserAdjacentHTML('beforeend', `<ul>${items}</ul>`);
+      container.insertAdjacentHTML('beforeend', `<ul>${items.substr(15)}</ul>`);
     });
   </script>
 </body>

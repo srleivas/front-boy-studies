@@ -31,9 +31,16 @@ app.post('upload', (req, res) => {
 app.post('/formulary', (req, res) => {
   res.send({
     ...req.body,
-    id: 1
+    // id: 1
   });
 });
 
+
+app.get('/oddOrEven', (req, res) => {
+  const even = parseInt(req.query.number) % 2 === 0;
+  res.send({
+    result: even ? 'even' : 'odd'
+  });
+});
 // app.get('/test', (req, res) => res.send('Ok')); 
 app.listen(8080, () => console.log('Running...'));

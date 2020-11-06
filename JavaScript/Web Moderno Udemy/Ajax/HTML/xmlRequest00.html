@@ -25,7 +25,7 @@
 
       xhr.onload = e => {
         if (xhr.status === 200) {
-          config.sucess(xhr.response);
+          config.success(xhr.response);
         }
         else if (xhr.status >= 400) {
           config.error({
@@ -40,7 +40,7 @@
     ajax({
       url: "../Data/states.json",
       method: "GET",
-      sucess(response) {
+      success(response) {
         const states = JSON.parse(response);
 
         const line = states.map(state => {
