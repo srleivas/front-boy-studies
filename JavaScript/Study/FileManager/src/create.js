@@ -6,12 +6,12 @@ const readline = require('readline').createInterface({
 
 const defaultPath = __dirname + '/CreatedFiles';
 const possibleArguments = ['-cf'];
-const taskArgument = process.argv[2];
+const createFileArg = process.argv[2];
 const fileNameArg = process.argv[3];
 const filePath = process.argv[4];
 
 // Treating arguments;
-if (taskArgument === '-cf' && fileNameArg !== undefined) {
+if (createFileArg === '-cf' && fileNameArg !== undefined) {
   fs.existsSync(__dirname + '/' + fileNameArg) 
     ? console.log("File already exists...") 
     : writeFileJson(fileNameArg, filePath);
@@ -24,20 +24,9 @@ else if (process.argv[2] !== possibleArguments) {
 // if file exists, ask to rename, else create file | Also verify folder existence; 
 function writeFileJson(file, filePath = defaultPath) {
   const completeFilePath = filePath + '/' + file;
-  if(fs.existsSync(filePath)) {
-    console.log('Folder already exists, creating file...') 
-  }
-  else {
-    try {
-      fs.mkdirSync(filePath);
-    }
-    catch(e) {
-      console.log('Not possible to create, it only accepts 1 folder deep, starting from root you set');
-    }
-  }
-  // fs.existsSync(filePath) 
-  //   ? console.log('Folder already exists, creating file...') 
-  //   : fs.mkdirSync(filePath);
+  fs.existsSync(filePath) 
+    ? console.log('Folder already exists, creating file...') 
+    : fs.mkdirSync(filePath);
 
   if (!fs.existsSync(completeFilePath)) {
     fs.writeFile(completeFilePath, '', err => {

@@ -5,16 +5,16 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 
 function main() {
-  return gulp.src('src/**/*.js')
+  return gulp.src('src/*.js')
     .pipe(babel({
       comments: false,
-      presets: ["env"]
+      presets: ['env']
     }))
     .pipe(uglify())
-    .on('error', e => console.log('error'))
-    .pipe(concat('codeName.min.js'))
+    .pipe(concat('gulpFile.min.js'))
     .pipe(gulp.dest('Build'))
-
 }
 
-exports.default = series(main);
+module.exports.default = series(main);
+
+

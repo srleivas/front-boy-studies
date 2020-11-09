@@ -1,0 +1,11 @@
+{
+    "files": [
+        "src/app.ts",
+        "src/products.ts"
+    ],
+    "compilerOptions": {
+        "rootDir": "src",
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}
