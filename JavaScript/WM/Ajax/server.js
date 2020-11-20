@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.static('.'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const multer = require('multer');

@@ -1,0 +1,12 @@
+.button {
+  background-color: $btn-bg-default;
+  color: $btn-color-default;
+  font-size: 1.2rem;
+  border: 2px solid #c8d100;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #11b1e8;
+}

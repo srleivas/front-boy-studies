@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+  font-family: Indie Flower, cursive, arial, helvetica, sans-serif;
+}
+
+*::selection {
+  background-color: rgba(5, 102, 141, .2);
+}
+
+body {
+  max-height: 100vh;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  filter: blur(2px);
+  background-image: url('../assets/beachBg.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%; width: 100%;
+}
+
+/* top pseudo-navbar */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%; height: 50px;
+  /* background: linear-gradient(120deg, rgba(203, 243, 240, .2), rgba(46, 196, 182, .2)); */
+  color: #fff;
+}
+
+.top img {
+  margin: 0 25px;
+  max-height: 50px;
+}
+
+/* Navbar */
+.container-left {
+  display: inline-block;
+  margin: 50px 0 0 40px;
+  height: 92%;
+  max-width: 10%; 
+  border-radius: 2px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  height: 75vh;
+}
+
+.navbar li {
+  width: 100%;
+  text-align: center;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  overflow: hidden;
+  max-height: 60px;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 100%;
+  color: #ffffff;
+  border-bottom: 3px solid #ff9f1c;
+  /* border: 3px solid #ff9f1c; */
+  background: linear-gradient(120deg, #ff9f1c, #ffbf69);
+  box-shadow: 1px 1px 5px 1px  #ccc;
+}
+
+.link:hover {
+  transition: .3s;
+  border-bottom: 3px solid #efefef;
+}
+
+.content .link {
+  display: block;
+  font-family: Nunito, Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  width: 20%;
+  margin: 20px auto;
+}
+
+.link-content {
+  background: linear-gradient(120deg, #CBF3F0, #2EC4B6);
+  border-bottom: 3px solid #2EC4B6;
+}
+
+/* Content */
+.content {
+  float: right;
+  text-align: center;
+  margin: 40px 10% 0 0;
+  width: 70%; height: 75vh;
+  background: rgba(0, 0, 0, .4);
+  border: 2px solid rgba(66, 66, 66, .8);
+}
+
+.content h1 {
+  padding: 10px;
+  font-family: Nunito, Arial, Helvetica, sans-serif;
+  color: #efefef;
+  font-size: 1.6rem;
+}
+
+.content p {
+  font-family: Work Sans, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: #efefef;
+  padding: 10px;
+  font-size: 1.2rem;
+}

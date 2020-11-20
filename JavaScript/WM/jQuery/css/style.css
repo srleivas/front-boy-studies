@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  padding: 0; margin: 0;
+}
+
+body {
+  background: linear-gradient(120deg, #fe7f2d, #a1c181);
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div {
+  text-align: center;
+  padding: 35px; margin: 10px;
+  width: 30%;
+  background-color: #efefef; 
+  color: #333;
+}

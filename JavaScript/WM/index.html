@@ -65,9 +65,13 @@
   </div>
 
   <script>
-    document.querySelector('[trash]').onclick = e => {
-      window.alert('Rusbéd!');
-    };
+    const trash = document.querySelectorAll('[trash]');
+    trash.forEach(item => {
+      item.onclick = e => {
+        e.preventDefault();
+        window.alert('Rusbé!');
+      }
+    });
 
     const soon = document.querySelectorAll('[comming-soon]');
     soon.forEach(item => {

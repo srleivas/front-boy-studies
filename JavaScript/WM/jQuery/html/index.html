@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/indexStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <script src="../js/sorry.js"></script>
+  <script src="../js/jquery.js"></script>
+  <title>jQuery | Index</title>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="top">
+    <img src="../assets/beachLogo.png" alt="">
+    <h2>Logo_Maneiro.jpg</h2>
+  </div>
+
+  <div class="container-left">
+    <ul class="navbar">
+      <li><a class="a link" href="1">Selecting</a></li>
+      <li><a class="a link" href="2">Modifiying</a></li>
+      <li><a class="a link" href="3">Manipulating</a></li>
+      <li><a class="a link" href="4">Events</a></li>
+      <li><a class="a link" href="5">Animation</a></li>
+      <li><a class="a link" href="6">Plugins</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>About jQuery</h1>
+    <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and
+      manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a
+      multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that
+      millions of people write JavaScript.</p>
+    <p>
+      It is designed to simplify HTML DOM tree traversal and manipulation, as well as event
+      handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. As of May
+      2019, jQuery is used by 73% of the 10 million most popular websites.</p>
+    <a class="link link-content" href="https://jquery.com" target="__blank">Official Page</a>
+  </div>
+
+  <script>
+    const content = document.querySelector('.content');
+    const link = document.querySelectorAll('a.a');
+
+    link.forEach(link => {
+      link.onclick = a => {
+        a.preventDefault();
+        let title = link.innerHTML;
+        let adress = link.getAttribute('href');
+        whichOne(title, adress);
+      }
+    });
+
+    function newElement(element, cssClass) {
+      const newElement = document.createElement(element);
+      newElement.classList.add(cssClass);
+      return newElement;
+    }
+
+    function newLink(element, href, title, clean = 1) {
+      clean ? content.innerHTML = "" : '';
+      element.setAttribute('href', href);
+      element.innerHTML = title;
+      $(element).hide().appendTo(content).fadeIn(500)
+    }
+
+  </script>
+</body>
+
+</html>
