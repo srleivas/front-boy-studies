@@ -4,57 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/indexStyle.css">
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/indexStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
   <script src="../js/sorry.js"></script>
   <script src="../js/jquery.js"></script>
+  <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
   <title>jQuery | Index</title>
 </head>
 
 <body>
-  <div class="background"></div>
   <div class="top">
-    <img src="../assets/beachLogo.png" alt="">
-    <h2>Logo_Maneiro.jpg</h2>
+    <img src="../assets/beachLogo.png" alt="Logo Maneiro">
+    <h2><a href="index.html">Logo_Maneiro.jpg</a></h2>
+  </div>
+
+  <div class="btn-holder">
+    <button class="menu-toggle-btn"><i class="fas fa-bars"></i></button>
   </div>
 
   <div class="container-left">
     <ul class="navbar">
-      <li><a class="a link" href="1">Selecting</a></li>
-      <li><a class="a link" href="2">Modifiying</a></li>
-      <li><a class="a link" href="3">Manipulating</a></li>
-      <li><a class="a link" href="4">Events</a></li>
-      <li><a class="a link" href="5">Animation</a></li>
-      <li><a class="a link" href="6">Plugins</a></li>
+      <li><a linkN="3" class="link" href="1">Selecting</a></li>
+      <li><a linkN="3" class="link" href="2">Modifying</a></li>
+      <li><a linkN="2" class="link" href="3">Manipulating</a></li>
+      <li><a linkN="3" class="link" href="4">Events</a></li>
+      <li><a linkN="2" class="link" href="5">Animation</a></li>
+      <li><a linkN="2" class="link" href="6">Plugins</a></li>
     </ul>
   </div>
 
   <div class="content">
-    <h1>About jQuery</h1>
-    <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and
-      manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a
-      multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that
-      millions of people write JavaScript.</p>
-    <p>
-      It is designed to simplify HTML DOM tree traversal and manipulation, as well as event
-      handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. As of May
-      2019, jQuery is used by 73% of the 10 million most popular websites.</p>
-    <a class="link link-content" href="https://jquery.com" target="__blank">Official Page</a>
+    <div class="container">
+      <h1>About jQuery</h1>
+      <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and
+        manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a
+        multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that
+        millions of people write JavaScript.</p>
+      <p>
+        It is designed to simplify HTML DOM tree traversal and manipulation, as well as event
+        handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. As of May
+        2019, jQuery is used by 73% of the 10 million most popular websites.</p>
+      <p>The OpenJS Foundation is made up of 32 open source JavaScript projects including Appium, Dojo, Electron,
+        jQuery, Node.js, and webpack. Our mission is to support the healthy growth of JavaScript and web technologies by
+        providing a neutral organization to host and sustain projects, as well as collaboratively fund activities that
+        benefit the ecosystem as a whole.</p>
+      <a class="link link-container" href="https://jquery.com" target="__blank">Official Page</a>
+    </div>
   </div>
 
   <script>
-    const content = document.querySelector('.content');
-    const link = document.querySelectorAll('a.a');
+    const container = document.querySelector('.container');
+    const link = document.querySelectorAll('[linkN]');
+
+    function log(...args) {
+      return console.log(...args);
+    }
 
     link.forEach(link => {
       link.onclick = a => {
         a.preventDefault();
-        let title = link.innerHTML;
-        let adress = link.getAttribute('href');
-        whichOne(title, adress);
+        whichOne(link.innerHTML, link.getAttribute('LinkN'));
       }
     });
 
@@ -65,12 +77,29 @@
     }
 
     function newLink(element, href, title, clean = 1) {
-      clean ? content.innerHTML = "" : '';
+      clean ? container.innerHTML = "" : '';
       element.setAttribute('href', href);
       element.innerHTML = title;
-      $(element).hide().appendTo(content).fadeIn(500)
+      $(element).hide().appendTo(container).fadeIn(500)
     }
 
+    // Toggle Menu when button clicked
+    $('button').click(e => $('.container-left').slideToggle(500))
+
+    // Toggle Menu when link clicked
+    $('.container-left .link').click(e => {
+      if(window.innerWidth <= 1150) 
+        $('.container-left').slideToggle(400);
+    });
+
+    $(window).on('resize', e => {
+      if (window.innerWidth > 1150) {
+        $('.container-left').css('display', 'inline-flex');
+      }
+      else {
+        $('.container-left').css('display', 'none');
+      }
+    });
   </script>
 </body>
 

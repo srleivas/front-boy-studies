@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/utility.css">
+  <script src="../js/jquery.js"></script>
+  <title>jQuery | Events</title>
+</head>
+
+<body class="container">
+  <h1 class="h1">Events</h1>
+  <div class="div" id="div1">1</div>
+  <div class="div" id="result1">Window Resize Log</div>
+  <input class="div" type="text" placeholder="Type & Select">
+  <div class="div" id="result2">?</div>
+
+  <script>
+    function log(...args) {
+      return console.log(...args);
+    }
+
+    const toggleHighlight = () => $('#div1').toggleClass('highlight');
+    $('#div1').hover(toggleHighlight, toggleHighlight)
+
+    // Calls function only once, yay! 
+    $('#div1').one('mouseenter', e => window.alert('It comes down with a bang!'));
+    $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000));
+
+    $(window).resize(function(e) {
+      const windowWidth = $(window).width() 
+      const windowHeight = $(window).height() 
+
+      $('#result1').html(`Width: ${windowWidth} <br>Height: ${windowHeight}`);
+    });
+
+    $(':input').select(e => {
+      const selectionStart = e.target.selectionStart;
+      const selectionEnd = e.target.selectionEnd;
+      // Uses substring to get the string selected, using as parameters selectionStart and End;
+      const selection = e.target.value.substring(selectionStart, selectionEnd);
+
+      $('#result2').html(`Selected: ${selection}`);
+    });
+
+  </script>
+</body>
+
+</html>

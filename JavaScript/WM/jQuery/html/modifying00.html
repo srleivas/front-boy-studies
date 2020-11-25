@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/utility.css">
+  <script src="../js/jquery.js"></script>
+  <title>jQuery | Modifying</title>
+</head>
+
+<body class="container setup">
+  <h1 class="h1">Modifying HTML</h1>
+  <div class="div" id="content00"></div>
+  <div class="div" id="content01"></div>
+  <div class="div" id="content02"></div>
+  <div class="div"></div>
+
+  <script>
+    $('#content00').append('<p>Lorem, ipsum.</p>');
+
+    const elements = [
+      $('<li></li>').append('list item 1'),
+      $('<li>').append('list item 2'),
+      $('<li>').append('list item 3')
+    ]
+
+    const list = $('<ul><li>list item X</li></ul>').prepend(elements).css('list-style', 'none');
+    $('#content01').append(list);
+
+    $('#content02').append(['<h1>H1²</h1>', '<h1>H1³</h1>']).prepend('<h1>H1¹</h1>');
+    // $('#content02').append('<h1>H1¹</h1>', '<h1>H1²</h1>');
+    // $('#content02').append('<h1>H1¹</h1>')
+      // .append('<h1>H1²</h1>').prepend('<h1>H1³</h1>');
+
+    // HTML replaces contents inside selected element
+
+    $('#content02').text('<h1>Literal text</h1>');
+    $('#content02').html('<h1>Html replaces, i brought you a daisy</h1>');
+
+    //$('div').html('<strong>Html replaces, you crock</strong>')
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/utility.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/jquery.js"></script>
+  <title>jQuery | Events</title>
+</head>
+
+<body class="container">
+  <h1 class="h1">Events</h1>
+  <div class ="div" id="position"></div>
+  <div class ="div" id="clicks">Clicks 0</div>
+  <input class="div" type="text" placeholder="Background Color" spellcheck="false">
+
+  <script>
+    function log (...args) {
+      return console.log(...args);
+    }
+    
+    function showMousePosition(e) {
+      $('#position').html(`x: ${e.clientX} y: ${e.clientY}`);
+    }
+
+    $('body').on('mousemove', showMousePosition);
+
+    $('#position').mouseover(e => {
+      $('body').off('mousemove', showMousePosition);
+    });
+
+    $('#position').mouseleave(e => {
+      $('body').mousemove(showMousePosition);
+    });
+
+    let clicks = 0;
+    $('body').click(e => {
+      $('#clicks').html(`Clicks ${++clicks}`);
+    });
+
+    const originalBg = $('body').css('background');
+    $('input').css('font-size', '1.3rem')
+
+    $('input').keyup(function() { 
+      const value = $(this).val();
+      const valueLen = value.length;
+      if (value.match(/#[\da-fA-F]{3,6}/) && (valueLen <= 7) && (valueLen == 4 || valueLen == 7 )) {
+        $('body').css('background', value);
+      }
+      else {
+        $('body').css('background', originalBg);
+      }
+    });
+  </script>
+</body>
+
+</html>

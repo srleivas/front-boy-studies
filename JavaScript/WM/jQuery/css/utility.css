@@ -1,0 +1,102 @@
+/* General */
+.highlight{
+  color: #fff             !important; 
+  background-color: #333  !important;
+  border: 3px solid #fff  !important;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1 {
+  border-bottom: 2px solid #0fd;
+  border-bottom-right-radius: 15px;
+  font-size: 2rem;
+  color: #fff;
+  padding: 5px;
+}
+
+.div {
+  background-color: #efefef;
+  padding: 10px;
+  min-width: 300px;
+  margin: 5px;
+  color: #333;
+  border: 3px solid #333;
+  text-align: center;
+}
+
+/* Setup Stuff */
+.setup p, .setup div {
+  border-radius: 5px;
+}
+
+.setup p {
+  padding: 5px;
+}
+
+.setup p, .setup div:nth-child(1n + 0) {
+  color: #fff;
+  background-color: #d90429;
+  border: 2px solid #fff;
+}
+
+.setup p, .setup div:nth-child(2n + 0) {
+  color: #fefefe;
+  background-color: #333;
+  border: 2px solid #fff;
+}
+
+.setup p, .setup div:nth-child(3n + 0) {
+  color: #333;
+  background-color: #fb2;
+  border: 2px solid #fff;
+}
+
+.setup p, .setup div:nth-child(4n + 0) {
+  color: #000;
+  background-color: #0fd;
+  border: 2px solid #fff;
+}
+
+/* Table DesuKa */
+table {
+  margin: 20px;
+  min-width: 500px;
+}
+
+caption {
+  color: #fff;
+  background-color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 2px;
+}
+
+tr {
+  background-color: #333;
+}
+
+td, th {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  width: 25%;
+}
+
+th {
+  border-bottom: 3px solid #fff;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Button */
+button {
+  text-align: center;
+  padding: 10px 20px;
+  margin: 5px;
+}

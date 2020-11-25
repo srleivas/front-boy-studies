@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/jquery.js"></script>
+  <title>jQuery | Selecting</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Banzai for creativity!</h1>
+  </header>
+
+  <div class="containerPipe">
+    <aside class="aside">
+      <nav>
+        <ul>
+          <li><a href="link01">link1</a></li>
+          <li><a href="link02">link2</a></li>
+          <li><a href="link03">link3</a></li>
+          <li><a href="link04">link4</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+  <main class="main">
+    <h1>Nice Title Ikr</h1>
+    <section>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus suscipit quam molestias maiores rerum sequi
+        distinctio consectetur adipisci eos aliquid natus eveniet voluptates, nesciunt tenetur provident blanditiis,
+        omnis numquam quibusdam itaque doloribus! Dolores autem laboriosam repellendus iusto reiciendis quibusdam eos
+        nulla doloremque nam quos omnis facilis esse, expedita debitis, amet eaque quaerat asperiores sint nesciunt!
+      </p>
+
+    </section>
+    <div class="button-div">
+      <button class="btn" onclick="jQueryStuff()">Activate jQueryStuff</button>
+    </div>
+</main>
+</div>
+
+  <footer class="footer">
+    <p><i>Me and Myself &copy1991</i></p>
+  </footer>
+
+  <script>
+
+    function jQueryStuff() {
+      $('.btn').remove();
+      const border = { 'border': 'solid 2px limegreen' };
+      const noBorder = { 'border': 'none' };
+
+      $('a[href="link03"]').parent().css(border).css(noBorder);
+
+      $('li:last').prev().css(border).css(noBorder);
+      $('a[href="link03"]').parent().next().css(border).css(noBorder);
+
+      // Select all parents related to selected element;
+      $('a[href="link03"]').parentsUntil($('body')).css(border).css(noBorder);
+      $('a[href="link03"]').parents().css(border)
+
+      $('main').children().css(border).css(noBorder);
+
+      $('body').find('a').css(border).css(noBorder);
+
+      const domElement = document.getElementsByClassName('aside');
+      $(domElement).css(border).css(noBorder);
+
+      $('main').children().each((index, element) => $(element).css(border).css(noBorder));
+      $('li').each((index, element) => {
+        $(element).css(border).css(noBorder);
+      })
+    }
+
+  </script>
+</body>
+
+</html>
