@@ -10,11 +10,12 @@
 
 body{
   z-index: -2;
-  background: url('../assets/beachBg.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 100%; width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 /* top */
@@ -76,7 +77,6 @@ body{
   background: #ff9f1c;
   border: 3px solid #fff;
   box-shadow: 1px 1px 5px 1px  #ccc;
-  /* cursor: url("../assets/flowsor.png"), auto; */
 }
 
 .link:hover {
@@ -130,9 +130,10 @@ body{
 }
 
 .container .link {
+  color: #fff;
   width: 25%;
-  font-size: 1.2rem;
   margin: 20px auto;
+  font-size: 1.2rem;
   font-family: Nunito, Arial, Helvetica, sans-serif;
 }
 
@@ -221,4 +222,8 @@ body{
     text-align: left;
     font-size: .9rem;
   } 
+
+  .container .link {
+    width: 160px;
+  }
 }

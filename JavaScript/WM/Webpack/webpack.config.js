@@ -47,10 +47,7 @@ module.exports = {
     rules: [{
       test: /\.s?[ac]ss$/,
       use: [
-        MiniCssExtractPlugin.loader,
-        // 'style-loader', // Add style tag & Css file to DOM
-        'css-loader', // Interprets @import, url(), etc...
-        'sass-loader'
+        MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
       ]
     }, 
     {

@@ -4,15 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/indexStyle.css">
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-  <script src="../js/sorry.js"></script>
-  <script src="../js/jquery.js"></script>
   <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon"> -->
+  <!-- <link rel="stylesheet" href="../css/indexStyle.css"> -->
+  <!-- <script src="../js/linkCreation.js"></script> -->
+  <!-- <script src="../js/ExternalJs/jquery.min.js"></script> -->
+  <!-- <script src="../js/ExternalJs/detectmobilebrowser.js"></script> -->
   <title>jQuery | Index</title>
+
+  <style>
+    body{
+      background-image: url('../assets/beachBg.png');
+    }
+  </style>
+
 </head>
 
 <body>
@@ -27,12 +38,12 @@
 
   <div class="container-left">
     <ul class="navbar">
-      <li><a linkN="3" class="link" href="1">Selecting</a></li>
-      <li><a linkN="3" class="link" href="2">Modifying</a></li>
-      <li><a linkN="2" class="link" href="3">Manipulating</a></li>
-      <li><a linkN="3" class="link" href="4">Events</a></li>
-      <li><a linkN="2" class="link" href="5">Animation</a></li>
-      <li><a linkN="2" class="link" href="6">Plugins</a></li>
+      <li><a menuLink class="link" href="#">Selecting</a></li>
+      <li><a menuLink class="link" href="#">Modifying</a></li>
+      <li><a menuLink class="link" href="#">Manipulating</a></li>
+      <li><a menuLink class="link" href="#">Events</a></li>
+      <li><a menuLink class="link" href="#">Animation</a></li>
+      <li><a menuLink class="link" href="#">Plugins</a></li>
     </ul>
   </div>
 
@@ -54,53 +65,11 @@
       <a class="link link-container" href="https://jquery.com" target="__blank">Official Page</a>
     </div>
   </div>
+  <script src="./mainFile.min.js"></script>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/detectmobilebrowser.js"></script>
+  <script src="../data/links.js"></script>
 
-  <script>
-    const container = document.querySelector('.container');
-    const link = document.querySelectorAll('[linkN]');
-
-    function log(...args) {
-      return console.log(...args);
-    }
-
-    link.forEach(link => {
-      link.onclick = a => {
-        a.preventDefault();
-        whichOne(link.innerHTML, link.getAttribute('LinkN'));
-      }
-    });
-
-    function newElement(element, cssClass) {
-      const newElement = document.createElement(element);
-      newElement.classList.add(cssClass);
-      return newElement;
-    }
-
-    function newLink(element, href, title, clean = 1) {
-      clean ? container.innerHTML = "" : '';
-      element.setAttribute('href', href);
-      element.innerHTML = title;
-      $(element).hide().appendTo(container).fadeIn(500)
-    }
-
-    // Toggle Menu when button clicked
-    $('button').click(e => $('.container-left').slideToggle(500))
-
-    // Toggle Menu when link clicked
-    $('.container-left .link').click(e => {
-      if(window.innerWidth <= 1150) 
-        $('.container-left').slideToggle(400);
-    });
-
-    $(window).on('resize', e => {
-      if (window.innerWidth > 1150) {
-        $('.container-left').css('display', 'inline-flex');
-      }
-      else {
-        $('.container-left').css('display', 'none');
-      }
-    });
-  </script>
 </body>
 
 </html>
