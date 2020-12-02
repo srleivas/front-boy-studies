@@ -4,21 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/utility.css">
   <script src="../js/ExternalJs/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/utility.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>jQuery | Events</title>
 
   <style>
-    span > div{
+    span > div {
       margin: 0 5px; padding: 15px;
       border: 2px solid #333;
-      border-radius: 10px;
       background: #3a0ca3;
-      color: #efefef;
+      border-radius: 10px;
       font-size: 1.2rem;
+      color: #efefef;
     }
   </style>
 </head>
@@ -37,7 +38,7 @@
       $('#result').empty()
       const div1 = $('<div>');
       const div2 = $('<div>');
-      
+
       $('#result').append(div1, div2);
       div1.append(`Target: ${e.target.id}`);
 
@@ -57,8 +58,8 @@
       div2.append(`<br>Obs: ${obs}`);
     }
 
-    $('#div1, #div2').on('mouseenter mouseleave', 
-    {obs: 'Smart Remark'}, showEventData);
+    $('#div1, #div2').on('mouseenter mouseleave',
+      { obs: 'Smart Remark' }, showEventData);
     $('input').keyup(showEventData);
   </script>
 </body>

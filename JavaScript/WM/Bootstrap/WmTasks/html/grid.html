@@ -1,0 +1,120 @@
+<div class="jumbotron p-4 my-1">
+  <h1 class="display-4">Grid System</h1>
+  <p class="lead m-1">Big responsiveness change: Containers, lines & 12 columns</p>
+</div>
+
+<nav class="mb-5">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#/html/welcome.html">Home</a></li>
+    <li class="breadcrumb-item active">Grid</li>
+  </ol>
+</nav>
+
+<p class="lead"> 
+  <a href="https://getbootstrap.com/docs/4.0/layout/grid/" target="_black">
+    Official Documentation
+  </a>
+</p>
+
+<div class="task">
+  <h1>1. Basic Grid</h1>
+  <hr>
+
+  <!-- Basic Grid -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col bg-primary">Col 1</div>
+      <div class="col bg-danger">Col 2</div>
+      <div class="col bg-warning">Col 3</div>
+      <div class="col bg-info">Col 4</div>
+      <div class="col bg-secondary">Col 5</div>
+    </div>
+    <div class="row mt-3">
+      <div class="col bg-danger">Col 1</div>
+      <div class="col-4 bg-warning">Col 2</div>
+      <div class="col-5 bg-info">Col 3</div>
+      <div class="col bg-primary">Col 3</div>
+    </div>
+  </div>
+
+
+  <h1 class="mt-5">2. Responsive Grid</h1>
+  <hr>
+
+  <!-- Responsive Grid -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-primary">1</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-danger">2</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-warning">3</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-info">4</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-sucess">5</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-secondary">6</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-danger">7</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 info">8</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-success">9</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-secondary">10</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-warning">11</div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-primary">12</div>
+    </div>
+  </div>
+
+  <h1 class="mt-5">3. Line Break</h1>
+  <hr>
+
+  <!-- Line Break -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 bg-primary">1</div>
+      <div class="col-3 bg-danger">2</div>
+      <div class="w-100"></div>
+      <div class="col-3 bg-warning">3</div>
+    </div>
+  </div>
+
+  <h1 class="mt-5">4. Order</h1>
+  <hr>
+
+  <!-- Order -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 order-5 bg-primary">1</div>
+      <div class="col-4 order-12 bg-danger">2</div>
+      <div class="col-4 order-1 bg-warning">3</div>
+    </div>
+  </div>
+
+  <h1 class="mt-5">5. Offset</h1>
+  <hr>
+
+  <!-- Offset -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 offset-7 bg-primary">1</div>
+      <div class="col-4 offset-3 bg-danger">2</div>
+      <div class="col-6 offset-6 bg-warning">3</div>
+    </div>
+  </div>
+
+  <h1 class="mt-5">6. Alignment</h1>
+  <hr>
+
+  <!-- Alignment -->
+  <div class="container-fluid">
+    <div class="row h-300">
+      <div class="col-4 align-self-end bg-primary">1</div>
+      <div class="col-4 align-self-center bg-danger">2</div>
+      <div class="col-4 align-self-start bg-warning">2</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .task div {
+    font-size: 1.5em;
+  }
+
+  .h-300 {
+    height: 300px;
+  }
+</style>

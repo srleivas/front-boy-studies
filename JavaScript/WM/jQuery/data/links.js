@@ -23,9 +23,8 @@ const links = {
     "Zoooooooom": "animation01.html",
   },
   plugins: {
-    plugins00: "plugins00.html",
-    plugins01: "plugins01.html",
-    plugins02: "plugins02.html"
+    "String Interpreter": "plugins00.html",
+    "Countdown": "plugins01.html",
   }
 }
 

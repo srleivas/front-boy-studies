@@ -1,0 +1,75 @@
+<div class="jumbotron p-4 my-1">
+  <h1 class="display-4">Formulary</h1>
+  <p class="lead m-1">Formulary components exemples</p>
+</div>
+
+<nav class="mb-5">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#/html/welcome.html">Home</a></li>
+    <li class="breadcrumb-item active">Form</li>
+  </ol>
+</nav>
+
+<p class="lead">
+  <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_black">Official Documentation</a>
+</p>
+
+<!-- Formulary -->
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">Form Sample</h5>
+  </div>
+
+  <div class="card-body">
+    <form action="#" class="container-fluid" autocomplete="off">
+
+      <!-- Name -->
+      <div class="form-row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Email & Prog. Language -->
+      <div class="form-row border-bottom mb-2">
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="email" class="form-control" id="email" placeholder="name@domain.dot">
+            </div>
+            <!-- <small class="form-text text-muted">
+              If you register we'll send you nudes ;)
+            </small> -->
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+         <div class="form-group">
+           <label for="prefered-language">Language</label>
+           <select name="lang" id="prefered-language" class="form-control">
+             <option>JavaScript</option>
+             <option>Ruby</option>
+             <option>Python</option>
+             <option>Java</option>
+           </select>
+         </div> 
+        </div>
+      </div>
+
+      <div class="form-row mb-0">
+        <div class="col-12 d-flex justify-content-end">
+          <button class="btn btn-primary mr-2" type="submit">Save</button>
+          <button class="btn btn-secondary" type="reset">Clear</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

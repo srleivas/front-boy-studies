@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/utility.css">
   <script src="../js/ExternalJs/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/utility.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Document</title>
 
   <style>
@@ -23,14 +24,14 @@
 
   <script>
     function animateWidth(width, duration, selector) {
-      return new Promise(resolve => 
-        resolve(resolve = { 
+      return new Promise(resolve =>
+        resolve(resolve = {
           animateWidth: $(selector).animate({ width: `+=${width}` }, duration)
         }));
     }
 
     function animateDiagonal(width, duration, selector) {
-      return new Promise( resolve => 
+      return new Promise(resolve =>
         resolve(resolve = {
           animateDiagonal: $(selector).animate({ top: `+=${width}`, left: `+=${width}` }, duration)
         }));
@@ -38,15 +39,16 @@
 
     function animateRotation(rotateValue, duration, selector) {
       return new Promise(resolve => {
-        resolve(resolve = { 
+        resolve(resolve = {
           rotationAnimation: $(selector).animate({ transform: `+=${rotateValue}` }, {
-            step: function(rotateValue) {
+            step: function (rotateValue) {
               $(this).css('transform', `rotate(${rotateValue}deg)`)
-          },
-          duration: duration}, 'linear')
+            },
+            duration: duration
+          }, 'linear')
         });
       });
-      
+
     }
 
     animateWidth('300px', 1000, 'div')

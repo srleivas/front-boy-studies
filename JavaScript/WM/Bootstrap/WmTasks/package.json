@@ -1,0 +1,19 @@
+{
+  "name": "boostrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server . -c-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^4.5.3",
+    "http-server": "^0.12.3",
+    "jquery": "^3.5.1"
+  }
+}

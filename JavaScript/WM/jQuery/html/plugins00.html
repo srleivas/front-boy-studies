@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/ExternalJs/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/utility.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>jQuery | Plugins</title>
+</head>
+
+<body class="container">
+  <h1 class="h1">Plugins</h1>
+  <div class="div">
+    {{ 1 + 2 }}
+    Texto 1
+    {{ 3 ** 3 }}
+    Texto 2
+    {{ console.log('Working not sans tho') }}
+    Texto 3
+    {{ (function() { return 'Freeze!!!' })() }}
+    Texto Final
+  </div>
+
+  <script>
+    // const $ = { text: 'Not jQuery'}
+
+    (function ($) {
+      $.fn.interpret = function() {
+        const removeBrackets = recievedString => recievedString.substring(2, recievedString.length - 2);
+        const getElementHtml = $(this).html();
+        const bracketsExpressions = getElementHtml.match(/\{\{.+\}\}/g);
+        const expressions = bracketsExpressions.map(removeBrackets);
+        const results = expressions.map(each => eval(each))
+
+        let finalContent = getElementHtml;
+        for (let i = 0; i < bracketsExpressions.length; i++) {
+          finalContent = finalContent.replace(
+            bracketsExpressions[i], results[i]
+          );
+        }
+        $(this).html(finalContent);
+        return this;
+      }
+    }(jQuery))
+
+    $('div').interpret();
+ 
+  </script>
+</body>
+
+</html>

@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../js/ExternalJs/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/utility.css">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="../js/ExternalJs/jquery.min.js"></script>
   <title>jQuery | Modifying</title>
 </head>
 
@@ -18,10 +19,10 @@
 
   <script>
     const pessoas = [
-      { nome: 'Ana', nota: 9.1, idade: 21, sexo: 'F'},
-      { nome: 'Bianca', nota: 8.4, idade: 19, sexo: 'F',},
-      { nome: 'Carlos', nota: 7.6, idade: 23, sexo: 'M',},
-      { nome: 'Julia', nota: 9.7, idade: 18, sexo: 'F',},
+      { nome: 'Ana', nota: 9.1, idade: 21, sexo: 'F' },
+      { nome: 'Bianca', nota: 8.4, idade: 19, sexo: 'F', },
+      { nome: 'Carlos', nota: 7.6, idade: 23, sexo: 'M', },
+      { nome: 'Julia', nota: 9.7, idade: 18, sexo: 'F', },
     ]
 
     $(document).ready(createTable(pessoas, '#content', 'Class Score'))
@@ -36,7 +37,7 @@
       array.map(obj => final = final.concat(Object.keys(obj)));
       const tableHeaders = new Set(final);
       for (let title of tableHeaders) $('<th>').append(title).appendTo(row);
-      
+
       // Define table data and append it to where it's due;  
       array.map((obj, index) => {
         const row = $('<tr>').appendTo(table);

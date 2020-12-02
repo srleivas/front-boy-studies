@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/utility.css">
   <script src="../js/ExternalJs/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/19e06ea1de.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/utility.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>jQuery | Selecting</title>
 </head>
+
 <body>
   <div class="container setup" style="justify-content: center;">
     <div class="div">Div</div>
@@ -23,10 +26,10 @@
     console.log($('div').get(0));
     console.log($.isEmptyObject({ name: 'someName' }));
     // If in array, show position, else returns -1;
-    console.log($.inArray('t', ['d', 'b', 'w', 't'] ));
+    console.log($.inArray('t', ['d', 'b', 'w', 't']));
 
     // Fn is an alias for prototype;
-    $.fn.greenBg = function() {
+    $.fn.greenBg = function () {
       this.css('background', '#0f0');
       return this;
     }
@@ -35,4 +38,5 @@
 
   </script>
 </body>
+
 </html>
