@@ -1,0 +1,30 @@
+*{ 
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+
+.changeBtn {
+  padding: 30px; margin: 5px;
+  width: 50%;
+}
+
+.changeBtn:hover {
+  cursor: pointer;
+}
+
+.textToBeChanged {
+  width: 50%;
+}
+
+.mainH2 {
+  max-width: 50%;
+  font-size: 1.8rem;
+}
