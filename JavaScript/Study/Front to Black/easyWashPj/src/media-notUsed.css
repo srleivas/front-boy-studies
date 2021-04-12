@@ -1,0 +1,72 @@
+@media (max-width: 1350px) {
+  th {
+    font-size: 1rem;
+  }
+}
+
+/* Ty Ipad */
+@media (max-width: 1024px) {
+  tbody {
+    max-height: 90vh;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .table-container {
+    margin-top: 15px;
+    border-radius: 0;
+  }
+
+  tbody {
+    max-height: 88vh;
+  }
+
+  table{
+    top: 0;
+    max-width: 90vw;
+  }
+  
+  th {
+    padding: 0;
+    height: 40px;
+    font-size: .7rem;
+  }
+
+  td {
+    font-size: .8rem;
+    height: 40px;
+    overflow: scroll;
+    padding: 0 7px;
+  }
+
+  a {
+    height: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  
+  td {
+    font-size: .6rem;
+    overflow-x: scroll;
+  }
+  
+  th {
+    font-size: .6rem;
+  }
+
+  tbody::-webkit-scrollbar {
+    width: 7px;
+  }
+} 
+
+@media (max-width: 340px) {
+  th {
+    font-size: .5rem;
+  }
+
+  tbody::-webkit-scrollbar {
+    width: 5px;
+  }
+}

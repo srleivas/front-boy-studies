@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load More</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 50px;
+      color: red;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .data {
+      padding: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+      </div>
+      <div class="row">
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+      </div>
+      <div class="row">
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+        <div class="data">item</div>
+      </div>
+    </div>
+    <button class="btn-loadmore">Load More</button>
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="btnloadmore.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+  
+  <script>
+  
+  </script>
+  <script>
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyAJWyK6BpYI9wJahiZn7O7Emr-KJ3Al70A",
+      authDomain: "easywashpj01.firebaseapp.com",
+      projectId: "easywashpj01",
+      databaseURL: "easywashpj01-default-rtdb.firebaseio.com/",
+      storageBucket: "easywashpj01.appspot.com",
+      messagingSenderId: "1061201161314",
+      appId: "1:1061201161314:web:a724f5e4d7088e35cd753b",
+      measurementId: "G-363MV180HH"
+    };
+
+    // // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const database = firebase.database();
+    const dbMainFolder = database.ref().orderByKey();
+    const table = document.querySelector('.table');
+    
+    $('.content').btnLoadmore({
+      showItem: 1,
+      whenClickBtn: 1,
+    })
+
+    const deviceTable = (new Promise ((resolve, reject) => {
+        dbMainFolder.once('value', snapshot => {
+          for (let [key, value] of Object.entries(snapshot.val())) {
+            
+            const tr = document.createElement('tr');
+            const tableDataArray = [key, value.updateFlag, value.uploadFolder];
+
+            
+            for (let i = 0; i < tableDataArray.length; i++) {
+              const td = document.createElement('td'); td.classList.add('td');
+              const tdText = document.createTextNode(tableDataArray[i])
+              
+              td.appendChild(tdText); tr.appendChild(td); table.appendChild(tr);
+            }
+            
+            const td = document.createElement('td'); td.setAttribute('device', key);
+            const tdText = document.createTextNode('Update')
+            const updateBtn = document.createElement('a'); updateBtn.classList.add('update-btn')
+            
+            td.appendChild(updateBtn).appendChild(tdText); tr.appendChild(td);
+            table.appendChild(tr);
+          }
+          resolve( updateStatus() )
+          reject( reject => alert(`Error : ${reject}`) )
+        });
+      })
+    )
+    
+    function updateStatus() {
+      document.querySelectorAll('[device]').forEach(btn => 
+        btn.onclick = () => updateFlag(btn.getAttribute('device'))
+      );
+        
+      const allTd = document.querySelectorAll('tr > td');
+      allTd.forEach(td => {
+        if (td.textContent === '0')
+        td.style.background = '#f3c4fb';
+        else if (td.textContent === '1')  
+        td.style.background = '#e2afff';
+        else if (td.textContent >= 1)
+          td.style.background = '#d00';
+      })}
+
+    function updateFlag(device = '') {
+      if (device) {
+        console.log(device)
+        database.ref(`${device}/updateFlag`).set(1);
+        window.location.href = window.location.pathname + window.location.search + window.location.hash;
+      }
+      else {
+        dbMainFolder.on('value', snapshot => {
+          for (let [key, value] of Object.entries(snapshot.val())) {
+            database.ref(`${key}/updateFlag`).set(1);
+            window.location.href = window.location.pathname + window.location.search + window.location.hash;
+          }
+        });
+      }
+    }
+  </script>
+
+</body>
+
+</html>

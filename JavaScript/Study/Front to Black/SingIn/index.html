@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Login | Auth</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="form-div">
+      <h2 class="form-title">Deep Weeabo</h2>
+      <div class="form-input-div">
+        <i class="fas fa-key"></i>
+        <input class="form-input"name="usr" type="text">
+      </div>
+
+      <div class="form-input-div">
+        <i class="fas fa-user"></i>
+        <input class="form-input"name="psw" type="password">
+      </div>
+ 
+      <a class="lost-psw" href="" onclick="lostPassword()">Lost your password? I'm sorry.</a>
+      <hr class="form-hr">
+
+      <div class="btn-div">
+        <button class="flex-grow-2 form-login-btn">Login</button>
+        <button class="flex-grow-1 form-login-btn">Register</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function lostPassword() {
+      alert('I mean it.')
+    }
+  </script>
+</body>
+
+</html>

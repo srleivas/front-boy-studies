@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliiiide</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      cursor: pointer;
+      /* margin-top: 10%; */
+      /* position: absolute; */
+      /* color: #d8a4ec; */
+      /* background: #f3f3f3; */
+      /* padding: 10px; */
+    }
+
+    #slide1 {
+      color: red;  
+    }
+
+    #slide2 {
+      color: blue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="slideDiv">
+      <p class="slide" id="slide1">Lorem, ipsum.</p>
+      <p class="slide" id="slide2">Lorem, ipsum.</p>
+    </div>
+  </div>
+
+  <script src="../facebook/jquery.js"></script>
+  <script>
+    $('#slide1').toggle();
+    // Blah
+    $('.slideDiv').hover(function() {
+      $('#slide2').slideUp(300);
+      $('#slide1').slideDown(300);
+    }, function() {
+      $('#slide2').slideDown(300);
+      $('#slide1').slideUp(300);
+    });
+  </script>
+</body>
+
+</html>

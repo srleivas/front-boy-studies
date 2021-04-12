@@ -1,0 +1,75 @@
+/* Browser */
+@media (max-width: 1075px){
+  .fb-text {
+    font-size: 1.5rem;
+    width: 350px;
+  }
+
+  .fb-logo {
+    margin-left: -14px;
+  }
+}
+
+@media (max-width: 901px){
+  .main-panel {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fb-panel {
+    margin-bottom: 30px;
+    margin-top: -50px;
+  }
+  
+  .fb-logo {
+    width: 300px;
+    margin: auto;
+  }
+
+  .fb-text {
+    text-align: center;
+    margin: auto;
+    max-width: 400px;
+    font-size: 1.50rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .main-panel {
+    margin: 20% auto;
+  }
+
+  .fb-text { 
+    display: none;
+  }
+
+  .fb-logo {
+    margin-bottom: -5%;
+  }
+
+  .form-panel {
+    max-width: 80%;
+    margin: auto auto;
+  }
+
+  .hr-div-footer, .ul-footer {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .fb-logo {
+    width: 95%;
+    margin-bottom: -35px;
+  }
+
+  .login-btn {
+    font-size: 1rem;
+  }
+
+  .new-acc-btn {
+    font-size: .8rem;
+  }
+}

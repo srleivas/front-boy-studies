@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/solid.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediatemp.css">
+  <title>Resource | Management</title>
+</head>
+
+<body>
+    <div class="header-div">
+      <div class="search"><i class="side-panel-btn fas fa-bars"></i>
+        <input class="search-input" type="text" placeholder="Search..." autocapitalize="off">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+
+  <div class="container" id="container">
+
+    <div id="sidePanel" class="side-panel">
+      <div class="true-panel">
+        <div class="list-title">
+          <img class="fas fa-list profile-pic" src="./img/cat.jpg" alt="Cato-desu">
+          <p><i class="fas fa-list"></i> Opções da Lista</p>
+        </div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> 
+            Baixar Lista (Itens Em falta)</a></div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <hr class="side-hr">
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <hr class="side-hr">
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+        <div class="panel-item"><a href="" class="list-link"><i class="list-icon fas fa-shopping-cart"></i> Item</a></div>
+      </div>
+    </div>
+
+    <div class="category-list" id="categoryList">
+    </div>
+  </div>
+
+
+  <!-- &Copy -->
+  <!-- List With less than X -- Cart icon -->
+  
+  <footer class="footer-navbar">
+    <div class="navbar-item"><i id="darkmode" class="far fa-moon"></i></div>
+    <div class="navbar-item download-div">
+      <a id="downloadLi" class="download-li"><i class="fas fa-download"></i> Baixar Lista</a></div>
+    <div id="fullscreenBtn" class="navbar-item"><i class="fas fa-expand"></i></div>
+  </footer>
+
+  <script src="jquery.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+  <script src="index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+@media (min-width: 600px) {
+  body {
+    overflow: hidden;
+  }
+
+  /* Search */
+  .header-div {
+    display: none;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  /* Side Panel */
+  .side-panel {
+    position: static;
+    width: 15%;
+    min-width: 280px;
+    z-index: 0;
+    background: initial;
+  }
+  
+  .true-panel {
+    width: initial;
+    overflow: auto;
+  }
+  
+  /* List */
+  .category-list {
+    flex-grow: 1;
+    margin: 10px 10px;
+    height: 98vh;
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+  
+  .category {
+    line-height: 4.3rem;    
+    font-size: 1.2rem;
+    cursor: default;
+    margin: 0 15px 5px 5px;
+  }
+
+
+  /* Buttons */
+  .toggleBtn {
+    cursor: pointer;
+  }
+
+  .add-or-remove {
+    cursor: pointer;
+  }
+
+  /* Footer Options / Lower Navbar */
+  .footer-navbar {
+    width: 15%;
+    min-width: 280px;
+    background: #ddd;
+  }
+
+  .fa-moon, .fa-expand {
+  }
+}

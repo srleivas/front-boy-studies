@@ -1,0 +1,103 @@
+<!-- Made by Vinicius Leivas aka Me 27/01/2021 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <title>Device Update | Status</title>
+  <style>
+    html{
+      height: 100%; width: 100%;
+      box-sizing: border-box;
+    }
+
+    body{
+      height: 100%; width: 100%;
+      margin: 0;
+    }
+
+    .form-div {
+      width: 100%; height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input {
+      margin: 5px 0; padding: 0;
+    }
+
+    input::placeholder {
+      padding-left: 5px;
+    }
+
+    button{ 
+      padding: 0; margin: 0;
+      height: 30px;
+      width: 100%;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+  <div class="form-div">
+    Login with &copyZoogle
+    <form action="#" class="form">
+      <label for="user"></label>
+      <input type="email" name="user" id="user-input" placeholder="idiot@email.com">
+      <label for="psw"></label>
+      <input type="password" name="psw" id="email-input" placeholder="**********">
+      <button type="button" onclick="authUser()">Login</button>
+    </form>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+</body>
+  
+  <script>
+
+    // FireBase ConfigFile
+    var firebaseConfig = {
+      apiKey: "AIzaSyAJWyK6BpYI9wJahiZn7O7Emr-KJ3Al70A",
+      authDomain: "easywashpj01.firebaseapp.com",
+      projectId: "easywashpj01",
+      databaseURL: "easywashpj01-default-rtdb.firebaseio.com/",
+      storageBucket: "easywashpj01.appspot.com",
+      messagingSenderId: "1061201161314",
+      appId: "1:1061201161314:web:a724f5e4d7088e35cd753b",
+      measurementId: "G-363MV180HH"
+    };
+
+    // // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    
+    function authUser() {
+      firebase.auth.signInWithEmailAndPassword( document.querySelector('input[name="user"]').value,
+      document.querySelector('input[name="psw"]').value )
+        .then((userCredential) => {
+          var user = userCredential.user;
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
+    }
+  </script>
+</body>
+
+</html>
