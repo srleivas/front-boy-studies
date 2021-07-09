@@ -1,0 +1,52 @@
+<label for="search">Search</label>
+<br>
+<input name="search" type="text" id="input" autofocus="on">
+<div id="text"></div>
+
+<br><hr><br>
+
+<label for="cpf-validator">Cpf Validator</label>
+<br>
+<small>It should be only numbers</small>
+<br>
+<input name="cpf-validator" type="text" id="cpf" autofocus="on">
+<div id="warning" class="warning"></div>
+
+<script>
+  const input = document.getElementById('input');
+  const textDiv = document.getElementById('text');
+  const cpfTag = document.getElementById('cpf');
+  const initialContent = textDiv.textContent;
+
+  function cagadaDoHighlight ()
+  {
+    input.addEventListener('keyup', () => {
+     let newText = input.value;
+     newText = newText.replace(/email/gi, '<span style="color:red">email</span>');
+     textDiv.innerHTML = newText;
+    });
+
+  input.addEventListener('keydown', () => {
+      let newText = input.value;
+      newText = newText.replace(/email/gi, '<span style="color:red">email</span>');
+      textDiv.innerHTML = newText;
+    });
+  }
+
+  function cpfValidator ()
+  {
+    cpfTag.addEventListener('keypress', e => {
+      if ((e.key == 'Enter') && cpfTag.value.match(/\d{11}/)){
+        let result = cpfTag.value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        cpfTag.value = result;
+        document.getElementById('warning').textContent = "";
+      }
+      else if (e.key == 'Enter'){
+        document.getElementById('warning').textContent = "Please insert a valid cpf";
+      }
+    });
+  }
+
+  cpfValidator();
+  
+</script>

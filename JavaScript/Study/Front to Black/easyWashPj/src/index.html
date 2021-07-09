@@ -70,13 +70,14 @@
             const td = document.createElement('td'); td.classList.add('td');
             const tdText = document.createTextNode(tableDataArray[i])
             td.appendChild(tdText); tr.appendChild(td); table.appendChild(tr);
+            let tdTextContent = td.textContent.toLowerCase();
 
-            if (tdText.textContent.toLowerCase() == 'offline') { td.style.color = '#ef233c'; td.textContent = "Offline" }
-            else if (td.textContent.toLowerCase() == 'online') { td.style.color = '#29bf12'; td.textContent = "Online" }
-            else if (td.textContent.toLowerCase() == 'unavailable') { td.style.color = '#bbb'; }
+            if (tdTextContent == 'offline') { td.style.color = '#ef233c'; tdTextContent = "Offline" }
+            else if (tdTextContent.toLowerCase() == 'online') { td.style.color = '#29bf12'; tdTextContent = "Online" }
+            else if (tdTextContent.toLowerCase() == 'unavailable') { td.style.color = '#bbb'; }
 
             if (tdText.textContent == '1') { td.style.color = '#faa307'; }
-            else if (td.textContent == '0') { td.style.color = '#29bf12'; }
+            else if (tdTextContent == '0') { td.style.color = '#29bf12'; }
           }
 
           const td = document.createElement('td'); td.setAttribute('device', key);
@@ -101,7 +102,7 @@
     // Update all flags or Selected ones and "refresh" the page; 
     function updateFlag(device = '') {
       if (device) {
-        database.ref(`${device}/updateFlag`).set(1);
+        database.ref(`${device}/updateFlag`).set(0);
         window.location.href = window.location.pathname + window.location.search + window.location.hash;
       }
       else {
