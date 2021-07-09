@@ -1,6 +1,48 @@
 node_modules
 cheatsheet
-Python
 SQLite3
 .vscode
-PHP
+
+# CakePHP specific files #
+##########################
+PHP/testPhp/config/app_local.php
+PHP/testPhp/config/.env
+PHP/testPhp/logs/*
+PHP/testPhp/tmp/*
+PHP/testPhp/vendor/*
+
+# OS generated files #
+######################
+PHP/testPhp/.DS_Store
+PHP/testPhp/.DS_Store?
+PHP/testPhp/._*
+PHP/testPhp/.Spotlight-V100
+PHP/testPhp/.Trashes
+PHP/testPhp/Icon?
+PHP/testPhp/ehthumbs.db
+PHP/testPhp/Thumbs.db
+PHP/testPhp/.directory
+
+# Tool specific files #
+#######################
+# PHPUnit
+PHP/testPhp/.phpunit.result.cache
+# vim
+PHP/testPhp/*~
+PHP/testPhp/*.swp
+PHP/testPhp/*.swo
+# sublime text & textmate
+PHP/testPhp/*.sublime-*
+PHP/testPhp/*.stTheme.cache
+PHP/testPhp/*.tmlanguage.cache
+PHP/testPhp/*.tmPreferences.cache
+# Eclipse
+PHP/testPhp/.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+PHP/testPhp/.idea/*
+# NetBeans
+PHP/testPhp/nbproject/*
+# Visual Studio Code
+PHP/testPhp/.vscode
+# Sass preprocessor
+PHP/testPhp/.sass-cache/
