@@ -1,52 +1,96 @@
-<label for="search">Search</label>
-<br>
-<input name="search" type="text" id="input" autofocus="on">
-<div id="text"></div>
+<!DOCTYPE html>
+<html lang="en">
 
-<br><hr><br>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
 
-<label for="cpf-validator">Cpf Validator</label>
-<br>
-<small>It should be only numbers</small>
-<br>
-<input name="cpf-validator" type="text" id="cpf" autofocus="on">
-<div id="warning" class="warning"></div>
+<body>
+  <div class="cpf-div">
+      <h2 for="cpf-validator" class="cpf-validator-label">Cpf Validator</h2>
+      <input 
+        name="cpf-validator" 
+        type="text" id="cpf" 
+        class="cpf-input"
+        autofocus="on" value="92964021074" 
+        onkeypress="$(this).mask('000.000.000-00')"
+      >
+      <div id="validationMessage" class="cpf-validation-message">
+        <p id="validationParagraph">Press Enter To Start</p>
+      </div>
+  </div>
+</body>
 
+<script src="jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script>
-  const input = document.getElementById('input');
-  const textDiv = document.getElementById('text');
   const cpfTag = document.getElementById('cpf');
-  const initialContent = textDiv.textContent;
+  const validationMessage = document.getElementById('validationParagraph');
+  const InitialValidationMessage = document.getElementById('validationParagraph').textContent;
 
-  function cagadaDoHighlight ()
-  {
-    input.addEventListener('keyup', () => {
-     let newText = input.value;
-     newText = newText.replace(/email/gi, '<span style="color:red">email</span>');
-     textDiv.innerHTML = newText;
-    });
-
-  input.addEventListener('keydown', () => {
-      let newText = input.value;
-      newText = newText.replace(/email/gi, '<span style="color:red">email</span>');
-      textDiv.innerHTML = newText;
-    });
-  }
-
-  function cpfValidator ()
+  function cpfFormatValidator ()
   {
     cpfTag.addEventListener('keypress', e => {
-      if ((e.key == 'Enter') && cpfTag.value.match(/\d{11}/)){
-        let result = cpfTag.value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-        cpfTag.value = result;
-        document.getElementById('warning').textContent = "";
+      if ((e.key == 'Enter') && cpfValidator(cpfTag.value.replace(/\.|-/gi, ''))) {
+        validationMessage.textContent = 'This is a freaking valid cpf! Good Job!';
       }
       else if (e.key == 'Enter'){
-        document.getElementById('warning').textContent = "Please insert a valid cpf";
+        validationMessage.textContent = 'Nah, not valid';
       }
-    });
+      else {
+        validationMessage.textContent = InitialValidationMessage;
+      }
+    })
   }
 
-  cpfValidator();
+  function cpfValidator(cpf, digitCountToValidate = 9, startsWith = 1, InitialCpf)
+  {
+    let digitsBeforeCurrent = cpf.substr(0, digitCountToValidate);
+    let currentDigits;
+    let digitsArray = new Array;
+
+    for(let i = 0; i < digitCountToValidate; i++) {
+      digitsArray.push(digitsBeforeCurrent[i] * (i + startsWith));
+    };
+    
+
+    currentDigits = digitsArray.reduce((total, current) => {
+      total += current;
+      return total;
+    });
+
+    currentDigits = digitsBeforeCurrent + (currentDigits % 11 == 10 ? 0 : currentDigits % 11);
+    
+    if (digitCountToValidate == 9) {
+      return cpfValidator(currentDigits, 10, 0, cpf);
+    }
+
+    return currentDigits.substr(9,11) == InitialCpf.substr(9,11) ? true : false;
+  }
+
+  cpfFormatValidator();
   
+  function timertest (arg) {
+    let i = 0;
+      if (arg == 'while') {
+        console.time('while');
+        while (i < 1000) {
+          console.log(i);
+          i++;
+        }
+        console.timeEnd('while');
+      }
+      else if (arg == 'for') {
+        console.time('for')
+        for (i; i < 1000; i++) {
+          console.log(i);
+        }
+        console.timeEnd('for');
+      }
+  }
 </script>
+</html>
