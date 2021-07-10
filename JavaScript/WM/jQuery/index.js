@@ -1,5 +1,0 @@
-import './data/links'
-import './js/linkCreation'
-import './js/mediaMenu'
-import './css'
-import './html/index.html'
