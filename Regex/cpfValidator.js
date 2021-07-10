@@ -5,7 +5,8 @@ const InitialValidationMessage = document.getElementById('validationParagraph').
 function cpfFormatValidator ()
 {
   cpfTag.addEventListener('keypress', e => {
-    if ((e.key == 'Enter') && cpfValidator(cpfTag.value.replace(/\.|-/gi, ''))) {
+    let providedCpf = cpfTag.value.replace(/\.|-/gi, '');
+    if ((e.key == 'Enter') && cpfValidator(providedCpf) && isValidInput(providedCpf)) {
       validationMessage.textContent = 'This is a freaking valid cpf! Good Job!';
     }
     else if (e.key == 'Enter'){
@@ -42,4 +43,12 @@ function cpfValidator(cpf, digitCountToValidate = 9, startsWith = 1, InitialCpf)
   return currentDigits.substr(9,11) == InitialCpf.substr(9,11) ? true : false;
 }
 
+function isValidInput (cpf) {
+  if ((cpf.match(/[1-9]/gi).length == 11) || cpf.length < 11) {
+    return false;
+  }
+  else {
+    return true
+  }
+}
 cpfFormatValidator();
