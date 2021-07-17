@@ -28,13 +28,12 @@ function cpfValidator(cpf, digitCountToValidate = 9, startsWith = 1, InitialCpf)
     digitsArray.push(digitsBeforeCurrent[i] * (i + startsWith));
   };
   
-
   currentDigits = digitsArray.reduce((total, current) => {
     total += current;
     return total;
   });
 
-  currentDigits = digitsBeforeCurrent + (currentDigits % 11 == 10 ? 0 : currentDigits % 11);
+  currentDigits = digitsBeforeCurrent + (currentDigits % 11 == (10||11) ? 0 : currentDigits % 11);
   
   if (digitCountToValidate == 9) {
     return cpfValidator(currentDigits, 10, 0, cpf);
