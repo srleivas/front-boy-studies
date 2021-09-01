@@ -5,13 +5,13 @@ include "ClasseBase.php";
 
     <div class="d-flex flex-column align-items-start">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value=<?= $_POST['nome'] ?>>
+        <input type="text" name="nome" id="nome" value=<?= isset($_POST['nome']) ? $_POST['nome'] : '' ?>>
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" value=<?= $_POST['email'] ?>>
+        <input type="text" name="email" id="email" value=<?= isset($_POST['email']) ? $_POST['email'] : '' ?>>
 
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" value=<?= $_POST['username'] ?>>
+        <input type="text" name="username" id="username" value=<?= isset($_POST['username']) ? $_POST['username'] : ''  ?>>
 
         <button type="submit" name="submit" class="my-1 btn btn-success">Submit</button>
         <button id="dropdown" class="btn" type="button">Não conseguiu?</button>
@@ -48,32 +48,30 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    if (!empty($errors)) {
-        foreach ($errors as $errorField => $error) {
-            echo "
-            <script> 
-            let $errorField = document.getElementById('$errorField');
-            $errorField.previousElementSibling.classList.add('error');
-            $errorField.classList.add('error-input');
-
-            $errorField.insertAdjacentHTML('afterend', '<small class=\'error\'>$error</small>');
-
-            
-            </script>
-            ";
-        }
-        echo "
-        <script>
-            let hasError = true;
-            document.getElementById('feedbackImg').setAttribute('src', 'https://c.tenor.com/cwSuXhgmcvIAAAAd/bolsonaro-e-dai.gif');
-        </script>";
-    }
     if (empty($errors)) {
         echo "
         <script>
             let hasError = false;
             $('#feedbackImg').attr('src', 'https://c.tenor.com/c363Rd8JBdQAAAAC/victory-you-did-it.gif').css('display', 'block');
         </script>";
+    }
+
+    if (!empty($errors)) {
+        $script = [];
+        foreach ($errors as $errorField => $error) {
+            $script[] =
+                "let $errorField = $('#$errorField');
+                $errorField.prev().addClass('error');
+                $errorField.addClass('error-input');
+                $errorField.after('<small class=\'error\'>$error</small>')";
+        }
+
+        $hasErrorScript =
+            "let hasError = true;
+            $('#feedbackImg').attr('src', 'https://c.tenor.com/cwSuXhgmcvIAAAAd/bolsonaro-e-dai.gif');";
+
+        $script = "<script>$hasErrorScript\n\n" . implode("\n\n", $script) . "</script>";
+        echo $script;
     }
 }
 ?>
