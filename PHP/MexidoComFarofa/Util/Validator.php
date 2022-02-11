@@ -1,4 +1,5 @@
-<?php class Validator
+<?php
+class Validator
 {
     private $_errors = [];
     private $_model = [];
@@ -70,7 +71,7 @@
 
         $rules = $modelValidator[$field]['rule'];
 
-        foreach($rules as $rule) {
+        foreach ($rules as $rule) {
 
             if (method_exists($this->_model, $rule)) {
                 $this->_model->$rule($value) ?: $this->buildError($field);

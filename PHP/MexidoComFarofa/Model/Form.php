@@ -1,10 +1,11 @@
 <?php
 include('Util/Validator.php');
+include('Model/Model.php');
 
-class Form
+class Form extends Model
 {
-    private $_validationData = [];
-    private $_validator = [
+    public $_validationData = [];
+    public $_validator = [
         'nome' => [
             'rule' => ['validaNome'],
             'message' => 'MUITO P-E-Q-U-E-N-O! Tá ok?'
@@ -22,18 +23,6 @@ class Form
             // 'message' => 'Deu erro'
         ]
     ];
-
-    public function getValidator() {
-        return $this->_validator;
-    }
-
-    public function getValidationData() {
-        return $this->_validationData;
-    }
-
-    public function setValidationData(array $fields) {
-        $this->_validationData = $fields;
-    }
 
     public function validaNome($nome) {
         return preg_match("/\w{5,}/i", $nome);

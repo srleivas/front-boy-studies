@@ -5,7 +5,7 @@ include "ClasseBase.php";
 
     <div class="d-flex flex-column align-items-start">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value=<?php isset($_POST['nome']) ? $_POST['nome'] : '' ?>>
+        <input type="text" name="nome" id="nome" value=<?= isset($_POST['nome']) ? $_POST['nome'] : '' ?>>
 
         <label for="email">Email</label>
         <input type="text" name="email" id="email" value=<?= isset($_POST['email']) ? $_POST['email'] : '' ?>>
