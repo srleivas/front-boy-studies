@@ -5,7 +5,7 @@ include "ClasseBase.php";
 
     <div class="d-flex flex-column align-items-start">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value=<?= isset($_POST['nome']) ? $_POST['nome'] : '' ?>>
+        <input type="text" name="nome" id="nome" value=<?php isset($_POST['nome']) ? $_POST['nome'] : '' ?>>
 
         <label for="email">Email</label>
         <input type="text" name="email" id="email" value=<?= isset($_POST['email']) ? $_POST['email'] : '' ?>>
@@ -13,40 +13,33 @@ include "ClasseBase.php";
         <label for="username">Username</label>
         <input type="text" name="username" id="username" value=<?= isset($_POST['username']) ? $_POST['username'] : ''  ?>>
 
-        <button type="submit" name="submit" class="my-1 btn btn-success">Submit</button>
-        <button id="dropdown" class="btn" type="button">Não conseguiu?</button>
+        <div>
+            <button type="submit" name="submit" class="my-1 btn btn-success">Submit</button>
+            <button id="dropdown" class="btn" type="button">Não conseguiu?</button>
+        </div>
+        
     </div>
 </form>
 
 <div class="img-div">
-    <img src="" alt="" id="feedbackImg" style="display:none">
+    <img src="" alt="" id="feedbackImg" style="display:none" draggable="false">
 </div>
 
 <?php
-$errors = [];
+
+include('Model/Form.php');
+
+$form = new Form;
+$validator = new Validator($form);
 
 if (isset($_POST['submit'])) {
-    foreach ($_POST as $name => $input) {
-        switch ($name) {
-            case 'nome':
-                empty($input) ? $errors['nome'] = 'VAZIL ZIL ZIL' : 0;
-                preg_match("/\w{5,}/i", $input) ? 0 : $errors['nome'] = 'MUITO P-E-Q-U-E-N-O! Tá ok?';
-                $_POST['nome'] = htmlspecialchars(trim($input));
-                break;
 
-            case 'email':
-                empty($input) ? $errors['email'] = 'VAZIL ZIL ZIL' : 0;
-                preg_match("/^\w+@(\w+\.)+\w{2,5}$/i", $input) ? 0 : $errors['email'] = 'ÔÔOOO cara! Ô cara!';
-                $_POST['email'] = htmlspecialchars(trim($input));
-                break;
+    unset($_POST['submit']);
 
-            case 'username':
-                empty($input) ? $errors['username'] = 'VAZIL ZIL ZIL' : 0;
-                preg_match("/\w{3,}/i", $input) ? 0 : $errors['username'] = 'FALTOU VONTADE AI!';
-                $_POST['username'] = htmlspecialchars(trim($input));
-                break;
-        }
-    }
+    $form->setValidationData($_POST);
+    $validator->validate();
+
+    $errors = $validator->getErrors();
 
     if (empty($errors)) {
         echo "
@@ -57,13 +50,17 @@ if (isset($_POST['submit'])) {
     }
 
     if (!empty($errors)) {
+
         $script = [];
-        foreach ($errors as $errorField => $error) {
+
+        foreach ($errors as $errorField => $params) {
+            $message = $params['message'];
+
             $script[] =
                 "let $errorField = $('#$errorField');
                 $errorField.prev().addClass('error');
                 $errorField.addClass('error-input');
-                $errorField.after('<small class=\'error\'>$error</small>')";
+                $errorField.after('<small class=\'error\'>$message</small>')";
         }
 
         $hasErrorScript =
@@ -78,15 +75,10 @@ if (isset($_POST['submit'])) {
 
 <script>
     function edailamento() {
-        if (!hasError) {
-            $('#dropdown').hide();
-        }
-        if (hasError) {
-            $('#dropdown').click(() => {
-                $('#feedbackImg').fadeToggle();
-
-            })
-        }
+        $('#dropdown').click(() => {
+            $('#feedbackImg').fadeToggle();
+            $('#feedbackImg').attr('src', 'https://c.tenor.com/cwSuXhgmcvIAAAAd/bolsonaro-e-dai.gif');
+        })
     }
     edailamento();
 </script>
